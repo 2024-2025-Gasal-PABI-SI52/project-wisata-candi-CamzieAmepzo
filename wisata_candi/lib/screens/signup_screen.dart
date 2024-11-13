@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({super.key});
+  const SignUpScreen({super.key});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -14,9 +16,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _fullnameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  String _errorText = '';
+  final String _errorText = '';
 
-  bool _isSignUp = false;
+  final bool _isSignUp = false;
 
   bool _obscurePassword = true;
 
@@ -100,5 +102,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('_isSignUp', _isSignUp));
   }
 }

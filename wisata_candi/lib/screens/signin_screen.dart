@@ -1,8 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
 class SignInScreen extends StatefulWidget {
-  SignInScreen({super.key});
+  const SignInScreen({super.key});
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -14,9 +15,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
   final TextEditingController _passwordController = TextEditingController();
 
-  String _errorText = '';
+  final String _errorText = '';
 
-  bool _isSignIn = false;
+  final bool _isSignIn = false;
 
   bool _obscurePassword = true;
 
@@ -107,5 +108,11 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('_isSignIn', _isSignIn));
   }
 }
